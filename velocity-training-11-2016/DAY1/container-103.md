@@ -24,16 +24,18 @@ $ cd minitwit
 
 ## Build Docker image
 
+Before you build the image, make sure that you add `EXPOSE 80` to the Dockerfile.
+
 ```
 $ docker build -t ${DOCKER_USER}/minitwit .
 ```
 
-If you don't know your `DOCKER_USER`, see the instructions in [Docker 101: Build Docker Image](dcos-102.md#build-docker-image).
+If you don't know your `DOCKER_USER`, see the instructions in [Container 101: Build an image](container-101.md#build-an-image).
 
 ## Run the app
 
 ```
-$ docker run -d --name minitwit ${DOCKER_USER}/minitwit
+$ docker run -d -P --name minitwit ${DOCKER_USER}/minitwit
 ```
 
 ## Discover container IP
@@ -91,7 +93,7 @@ SPRING_DATASOURCE_PLATFORM=mysql
 EOF
 
 # start minitwit server
-$ docker run -d --name minitwit --env-file=minitwit.env karlkfi/minitwit
+$ docker run -d --name minitwit --env-file=minitwit.env ${DOCKER_USER}/minitwit
 ```
 
 ## Clean up

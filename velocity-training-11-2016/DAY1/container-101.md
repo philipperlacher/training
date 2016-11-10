@@ -1,5 +1,9 @@
 # Container 101
 
+Tested with Docker engine v1.11, you might see unexpected results with 1.12 and above.
+
+Note that the commands shown below assume a bash shell (so, this does not work on the Windows command line!).
+
 ## Find images
 
 ```
@@ -25,7 +29,7 @@ $ exit
 ## Run daemon
 
 ```
-$ docker run -d --name my-nginx nginx
+$ docker run -d -P --name my-nginx nginx
 
 # list running containers
 $ docker ps
@@ -60,7 +64,7 @@ $ docker inspect my-ubuntu
 $ docker rm -f my-ubuntu
 ```
 
-## Build  an image
+## Build an image
 
 ```
 $ mkdir -p demo/nginx
